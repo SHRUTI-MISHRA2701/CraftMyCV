@@ -1,0 +1,14 @@
+.particle-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Ensures the particles stay in the background */
+  }
+  
+  .form-container {
+    position: relative;
+    z-index: 1; /* Ensures the form stays on top of the particles */
+  }
+  

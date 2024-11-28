@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ParticleBackground from "./particlebackground"; 
 const Forms = () => {
   const nav = useNavigate();
   const [skills, setSkills] = useState([""]);
-  const [name, setName] = useState(""); 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneno, setPhoneno] = useState("");
   const [linkedin, setLinkedIn] = useState("");
@@ -54,176 +55,179 @@ const Forms = () => {
   };
 
   const handleAwardChange = (index, value) => {
-    const newAwards = [...awards]; 
-    newAwards[index] = value;      
-    setAwards(newAwards);          
+    const newAwards = [...awards];
+    newAwards[index] = value;
+    setAwards(newAwards);
   };
-  
 
   const addAwards = () => {
-    setAwards([...awards, ""]); 
+    setAwards([...awards, ""]);
   };
 
   const removeAwards = (index) => {
-    const newAwards = awards.filter((_, i) => i !== index); 
-    setAwards(newAwards); 
+    const newAwards = awards.filter((_, i) => i !== index);
+    setAwards(newAwards);
   };
   const submit = () => {
-    // if(name&&email&&phoneno&& linkedin && github && address && highschoolName && hYOC && hgrades && hcity && intermediateschoolName && iyoc && ipercent && icity && collegeName && collegeYOC && collegeCGPA && collegecity && awards && skills && Projects )
-      nav('/maintemplate', { state: { name , email, phoneno , linkedin, github , address , highschoolName, hYOC , hgrades ,hcity , intermediateschoolName , iyoc , ipercent , icity , collegeName , collegeYOC ,collegeCGPA, collegecity, awards , skills , Projects } });
-    
-    // else
-    //   alert('Please fill all the required fields');  
+     if(name&&email&&phoneno&& linkedin && github && address && highschoolName && hYOC && hgrades && hcity && intermediateschoolName && iyoc && ipercent && icity && collegeName && collegeYOC && collegeCGPA && collegecity && awards && skills && Projects )
+    nav("/choosetemplate", {
+      state: {name, email, phoneno, linkedin, github, address, highschoolName, hYOC, hgrades, hcity, intermediateschoolName, iyoc,  ipercent, icity, collegeName, collegeYOC,  collegeCGPA,  collegecity, awards, skills, Projects },
+    });
+
+     else
+       alert('Please fill all the required fields');
   };
-    
 
   return (
-    <div className="flex flex-col items-center justify-center ">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
-        <form className="flex flex-col">
-          <input
-            placeholder="Full Name"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            placeholder="Email"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            placeholder="Phone No"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={phoneno}
-            onChange={(e) => setPhoneno(e.target.value)}
-          />
-          <input
-            placeholder="LinkedIn URL"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="Text"
-            value={linkedin}
-            onChange={(e) => setLinkedIn(e.target.value)}
-          />
-          <input
-            placeholder="Github URL"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={github}
-            onChange={(e) => setGithub(e.target.value)}
-          />
-          <input
-            placeholder="Address"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 z-index " >
+      <ParticleBackground className="particle-background"/>
+      <div className=" form-container w-11/12 max-w-6xl bg-white shadow-md rounded-lg p-6 border-2 border-blue-300 mt-7 mb-7">
+        <form className="space-y-6 ">
+          <div className="grid grid-cols-2 gap-8">
+            <input
+              placeholder="Full Name"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              placeholder="Email"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              placeholder="Phone No"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={phoneno}
+              onChange={(e) => setPhoneno(e.target.value)}
+            />
+            <input
+              placeholder="LinkedIn URL"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="Text"
+              value={linkedin}
+              onChange={(e) => setLinkedIn(e.target.value)}
+            />
+            <input
+              placeholder="Github URL"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={github}
+              onChange={(e) => setGithub(e.target.value)}
+            />
+            <input
+              placeholder="Address"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
 
-          {/* .....................................high school starts............................... */}
-          <input
-            placeholder="High School Name"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={highschoolName}
-            onChange={(e) => sethighSchoolName(e.target.value)}
-          />
+            {/* .....................................high school starts............................... */}
+            <input
+              placeholder="High School Name"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={highschoolName}
+              onChange={(e) => sethighSchoolName(e.target.value)}
+            />
 
-          <input
-            placeholder="High School YOC"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={hYOC}
-            onChange={(e) => sethYOC(e.target.value)}
-          />
+            <input
+              placeholder="High School YOC"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={hYOC}
+              onChange={(e) => sethYOC(e.target.value)}
+            />
 
-          <input
-            placeholder="High School Grades"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={hgrades}
-            onChange={(e) => sethgrades(e.target.value)}
-          />
-          <input
-            placeholder="High School City"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={hcity}
-            onChange={(e) => sethcity(e.target.value)}
-          />
-          {/* .....................................high school ends............................... */}
+            <input
+              placeholder="High School Grades"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={hgrades}
+              onChange={(e) => sethgrades(e.target.value)}
+            />
+            <input
+              placeholder="High School City"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={hcity}
+              onChange={(e) => sethcity(e.target.value)}
+            />
+            {/* .....................................high school ends............................... */}
 
-          {/* .....................................intermediate starts............................... */}
+            {/* .....................................intermediate starts............................... */}
 
-          <input
-            placeholder="Intermediate School Name"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={intermediateschoolName}
-            onChange={(e) => setintermediateSchoolName(e.target.value)}
-          />
+            <input
+              placeholder="Intermediate School Name"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={intermediateschoolName}
+              onChange={(e) => setintermediateSchoolName(e.target.value)}
+            />
 
-          <input
-            placeholder="Intermediate School YOC"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={iyoc}
-            onChange={(e) => setiyoc(e.target.value)}
-          />
+            <input
+              placeholder="Intermediate School YOC"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={iyoc}
+              onChange={(e) => setiyoc(e.target.value)}
+            />
 
-          <input
-            placeholder="Intermediate School Grades"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={ipercent}
-            onChange={(e) => setipercent(e.target.value)}
-          />
-          <input
-            placeholder="Intermediate School City"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={icity}
-            onChange={(e) => seticity(e.target.value)}
-          />
+            <input
+              placeholder="Intermediate School Grades"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={ipercent}
+              onChange={(e) => setipercent(e.target.value)}
+            />
+            <input
+              placeholder="Intermediate School City"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={icity}
+              onChange={(e) => seticity(e.target.value)}
+            />
 
-          {/* .....................................intermediate ends............................... */}
+            {/* .....................................intermediate ends............................... */}
 
-          {/* .....................................College starts............................... */}
+            {/* .....................................College starts............................... */}
 
-          <input
-            placeholder="College Name"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={collegeName}
-            onChange={(e) => setCollegeName(e.target.value)}
-          />
+            <input
+              placeholder="College Name"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={collegeName}
+              onChange={(e) => setCollegeName(e.target.value)}
+            />
 
-          <input
-            placeholder="College YOC"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={collegeYOC}
-            onChange={(e) => setcollegeYOC(e.target.value)}
-          />
+            <input
+              placeholder="College YOC"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={collegeYOC}
+              onChange={(e) => setcollegeYOC(e.target.value)}
+            />
 
-          <input
-            placeholder="College CGPA"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={collegeCGPA}
-            onChange={(e) => setCollegeCGPA(e.target.value)}
-          />
-          <input
-            placeholder="College City"
-            className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            value={collegecity}
-            onChange={(e) => setCollegecity(e.target.value)}
-          />
+            <input
+              placeholder="College CGPA"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={collegeCGPA}
+              onChange={(e) => setCollegeCGPA(e.target.value)}
+            />
+            <input
+              placeholder="College City"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              type="text"
+              value={collegecity}
+              onChange={(e) => setCollegecity(e.target.value)}
+            />
+          </div>
 
           {/* .....................................College ends............................... */}
 
@@ -255,34 +259,40 @@ const Forms = () => {
           {/* {................................skills ends...............................................} */}
           {/* {................................project....................................................} */}
 
-          {Projects.map((project, index) => (
-            <div key={index} className="flex items-center gap-2 mb-4">
-              <input
-                placeholder={`Project title ${index + 1}`}
-                className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 flex-grow focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-                type="text"
-                value={project.title}
-                onChange={(e) =>
-                  handleProjectChange(index, "title", e.target.value)
-                } // Pass correct field and value
-              />
-              <textarea
-                placeholder={`Project Description ${index + 1}`}
-                className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 flex-grow focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-                value={project.description}
-                onChange={(e) =>
-                  handleProjectChange(index, "description", e.target.value)
-                }
-              />
-              <button
-                type="button"
-                className="text-red-500 hover:text-red-700 transition ease-in-out duration-150"
-                onClick={() => removeProject(index)}
-              >
-                Remove Project
-              </button>
+          <div>
+            <h2 className="font-semibold mb-2">Projects</h2>
+            <div className="space-y-4">
+              {Projects.map((project, index) => (
+                <div key={index} className="grid  gap-4">
+                  <input
+                    placeholder={`Project Title ${index + 1}`}
+                    className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 flex-grow focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+                    type="text"
+                    value={project.title}
+                    onChange={(e) =>
+                      handleProjectChange(index, "title", e.target.value)
+                    }
+                  />
+
+                  <textarea
+                    placeholder={`Project Description ${index + 1}`}
+                    className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 flex-grow focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+                    value={project.description}
+                    onChange={(e) =>
+                      handleProjectChange(index, "description", e.target.value)
+                    }
+                  />
+                  <button
+                    type="button"
+                    className="text-red-500 hover:text-red-700 transition ease-in-out duration-150"
+                    onClick={() => removeProject(index)}
+                  >
+                    Remove Project
+                  </button>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
           <button
             type="button"
             className="bg-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-blue-600 transition ease-in-out duration-150"
@@ -310,6 +320,7 @@ const Forms = () => {
               </button>
             </div>
           ))}
+          < div className="flex  mt-6">
           <button
             type="button"
             className="bg-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-blue-600 transition ease-in-out duration-150"
@@ -317,14 +328,17 @@ const Forms = () => {
           >
             Add Awards & Achievement
           </button>
+          </div>
 
+          <div className="flex justify-end mt-6">
           <button
-          type="button"
-          onClick={submit}
-          className="bg-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-blue-600 transition ease-in-out duration-150">
+            type="button"
+            onClick={submit}
+            className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition duration-150 mx-auto justify-end"
+          >
             Submit
-
           </button>
+          </div>
         </form>
       </div>
     </div>

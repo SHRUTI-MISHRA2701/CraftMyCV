@@ -9,18 +9,18 @@ const MainTemplate = () => {
   console.log(location);
 
   const generatePDF = () => {
-    // Use the ref to get the target element
+    
     const element = pdfRef.current;
 
     const options = {
-      margin: 5, // Margins in mm
+      margin: 5, 
       filename: "resume.pdf",
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2 }, // Improves resolution
       jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
     };
 
-    // Generate PDF
+    
     html2pdf().set(options).from(element).save();
   };
 
@@ -33,7 +33,7 @@ const MainTemplate = () => {
           className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8"
           ref={pdfRef}
         >
-          {/* Header */}
+          {/*................. Header....................... */}
           <header className="text-center mb-6">
             <h1 className="text-3xl font-bold">{location.state.name}</h1>
 
@@ -45,7 +45,7 @@ const MainTemplate = () => {
             </p>
           </header>
 
-          {/* Education Section */}
+          {/*..................... Education Section................................ */}
           <section className="mb-6">
             <h2 className="text-xl font-semibold border-b pb-2">Education</h2>
             <div className="mt-2">
@@ -64,7 +64,7 @@ const MainTemplate = () => {
             </div>
           </section>
 
-          {/* Skills Section */}
+          {/*............................... Skills Section................................... */}
           <section className="mb-6">
             <h2 className="text-xl font-semibold border-b pb-2">Skills</h2>
             <div className="mt-2">
@@ -76,7 +76,7 @@ const MainTemplate = () => {
             </div>
           </section>
 
-          {/* Projects Section */}
+          {/*............................... Projects Section....................................... */}
           <section className="mb-6">
             <h2 className="text-xl font-semibold border-b pb-2">Projects</h2>
             <div className="mt-2">
@@ -89,7 +89,7 @@ const MainTemplate = () => {
             </div>
           </section>
 
-          {/* Certifications Section */}
+          {/*................................... Certifications Section................................ */}
 
           <section className="mb-6">
             <h2 className="text-xl font-semibold border-b pb-2">
@@ -107,8 +107,8 @@ const MainTemplate = () => {
           </section>
         </div>
         <div className="flex justify-centre">
-          <button
-            className=" mt-5 bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition duration-150 mx-auto"
+          <button 
+            className=" bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition duration-150 mx-auto"
             onClick={generatePDF}
           >
             Download as PDF
